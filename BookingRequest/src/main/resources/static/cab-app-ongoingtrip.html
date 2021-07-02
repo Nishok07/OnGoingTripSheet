@@ -479,7 +479,29 @@
              var date = obj[0].cabDetails.dateOfTravel;
              var dateOfTravel = date.split("\-");
              document.getElementById("date").innerHTML = dateOfTravel[2] + "-" + dateOfTravel[1] + "-" + dateOfTravel[0];
-            document.getElementById("timeslot").innerHTML = obj[0].timeSlot;
+          //  document.getElementById("timeslot").innerHTML = obj[0].timeSlot;
+             var timeSlot = obj[0].timeSlot;
+             var timeSplit = timeSlot.split(":");
+             var hour = timeSplit[0];
+             if(hour<12){
+					if(hour==00){
+						document.getElementById("timeslot").innerHTML = "12" + ":" + timeSplit[1] + " AM";
+					}
+					else{
+						document.getElementById("timeslot").innerHTML = hour + ":" + timeSplit[1] + " AM";
+					}
+					
+				}
+				else{
+					hour = hour - 12;
+					if(hour < 10){
+						document.getElementById("timeslot").innerHTML = "0" + hour + ":" + timeSplit[1] + " PM";
+					}
+					else{
+						document.getElementById("timeslot").innerHTML = hour + ":" + timeSplit[1] +" PM";
+					}
+					
+				}
             
             var tbody = document.getElementById("tablebody");
             for(var rows = 0; rows < rowLength; rows++) {
