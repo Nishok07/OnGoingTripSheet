@@ -14,11 +14,6 @@ public class OnGoingTripSheetBL {
 	
 	public List<BookingRequestBO> getOnGoingTripSheet(int employeeID) {
 		
-		List<BookingRequestBO> tripSheet = this.service.getTripSheet(employeeID);
-		for(BookingRequestBO request : tripSheet) {
-			
-			request.getBookingID();
-		}
-		return tripSheet;
+		return this.service.getTripSheet(employeeID);
 	}
 }
